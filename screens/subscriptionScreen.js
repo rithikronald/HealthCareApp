@@ -8,7 +8,7 @@ import Icon from 'react-native-vector-icons/AntDesign'
 export default function SubscriptionScreen({ navigation }) {
     const [modalVisible,setModalVisible] = useState(true);
   return (
-    <SafeAreaView style={styles.containerStyle}>
+    <View style={styles.containerStyle}>
         <Modal
             animationType='slide'
             transparent={true}
@@ -74,11 +74,11 @@ export default function SubscriptionScreen({ navigation }) {
         <TouchableOpacity style={styles.buttonStyle} onPress={()=>navigation.navigate('fillDetailsScreen')}>
             <Text style={styles.buttonTextStyle}>SUBSCRIBE</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{alignItems:'center',justifyContent:'center'}} onPress={()=>navigation.navigate('subscriptionScreen')}>
-            <Text style={{color:colors.textColorMedium,fontFamily:'DMSans-Medium',fontSize:16,marginTop:'3%'}}>No Thanks</Text>
+        <TouchableOpacity style={{alignItems:'center',justifyContent:'center',margin:'2%'}} onPress={()=>navigation.navigate('subscriptionScreen')}>
+            <Text style={{color:colors.textColorMedium,fontFamily:'DMSans-Medium',fontSize:16}}>No Thanks</Text>
         </TouchableOpacity>
         </>
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     backgroundColor:colors.backgroundColor
   },
   textContainer:{
-    margin:'4%'
+    margin:'4%',
   },
   imageStyle: {
     width:'100%',

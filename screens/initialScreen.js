@@ -6,7 +6,9 @@ import colors from '../assets/colors/colors'
 export default function InitialScreen({ navigation }) {
   return (
     <View style={styles.containerStyle}>
-      <Image source={require('../assets/images/BloodFlow.png')}  style={styles.imageStyle} />
+      <View style={{width:'100%',height:"60%",marginTop:'10%',justifyContent:'center'}}>
+        <Image source={require('../assets/images/BloodFlow.png')} resizeMode="contain" style={{width:'100%'}} />
+      </View>
       <Text style={styles.textStyle}>Visualize blood flow using PPG Graph and get all metrics justusing your iPhone for FREE!</Text>
       <TouchableOpacity style={styles.buttonStyle} onPress={()=>{navigation.navigate('onBoardingScreen')}}>
         <Text style={styles.buttonTextStyle}>GET STARTED</Text>
@@ -19,11 +21,6 @@ const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
     backgroundColor:colors.backgroundColor
-  },
-  imageStyle: {
-    width:'100%',
-    height:"60%",
-    marginTop:'10%'
   },
   textStyle: {
     fontFamily:'DMSans-Regular',

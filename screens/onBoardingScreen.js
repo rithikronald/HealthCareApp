@@ -22,10 +22,6 @@ const styles = StyleSheet.create({
     alignItems:'center',
     backgroundColor:colors.backgroundColor
   },
-  imageStyle: {
-    width:'100%',
-    height:"60%"
-  },
   textStyle: {
     fontFamily:'DMSans-Regular',
     fontSize:18,

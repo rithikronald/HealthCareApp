@@ -10,6 +10,7 @@ export default function FillDetailsScreen({ navigation }) {
   const [date, setDate] = useState(new Date())
   const [weight,setWeight] = useState(0)
   const [weightType,setWeightType] = useState("kgs")
+  const [selected,setSelected] = useState('Male')
   return (
     <View style={styles.containerStyle}>
       <Text style={styles.mainTextStyle}>When you were born?</Text>
@@ -25,17 +26,21 @@ export default function FillDetailsScreen({ navigation }) {
       <Text style={styles.mainTextStyle}>Your Gender?</Text>
       <Text style={styles.subTextStyle}>Please enter your gender</Text>
       <View style={styles.genderButtonContainer}>
-        <TouchableOpacity style={styles.genderButtonStyle} onPress={()=>{}}>
+        <TouchableOpacity style={[styles.genderButtonStyle,{backgroundColor :selected == 'Male'?colors.button:"#D1D1D1"}]} onPress={()=>setSelected('Male')}>
             <Text style={styles.genderButtonTextStyle}>Male</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.genderButtonStyle,{backgroundColor:"#D1D1D1"}]} onPress={()=>{}}>
+        <TouchableOpacity style={[styles.genderButtonStyle,{backgroundColor:selected == 'Female'?colors.button:"#D1D1D1"}]} onPress={()=>setSelected('Female')}>
             <Text style={styles.genderButtonTextStyle}>Female</Text>
         </TouchableOpacity>
       </View>
       <Text style={styles.mainTextStyle}>Your Current Weight?</Text>
       <View style={styles.weightContainer}>
             <Icon name="pluscircle" size={40} color={colors.button} onPress={()=>{setWeight(weight+1)}} />
-            <TextInput defaultValue={`${weight} ${weightType}`} keyboardType="number-pad" style={styles.weightInputStyles} />
+            {/*  */}
+            <View style={styles.weightInputStyles}>
+            <TextInput defaultValue={`${weight}`} maxLength={3} keyboardType="number-pad" style={{fontSize:18}} />
+            <Text style={{fontSize:18,fontFamily:'DMSans-Regular'}}>{weightType}</Text>
+            </View>
             <Icon name="minuscircle" size={40} color={colors.button} onPress={()=>{weight != 0?setWeight(weight-1):null}} />
       </View>
       <TouchableOpacity style={{alignSelf:'center'}} onPress={()=>weightType =="kgs"?setWeightType("lbs"):setWeightType("kgs")}>
@@ -92,7 +97,6 @@ const styles = StyleSheet.create({
   genderButtonStyle:{
     width:'30%',
     height:50,
-    backgroundColor:colors.button,
     alignSelf:'center',
     borderRadius:25,
     alignItems:'center',
@@ -101,7 +105,6 @@ const styles = StyleSheet.create({
     marginHorizontal:'4%'
   },
   genderButtonTextStyle:{
-    color:colors.textColorLight,
     fontFamily:'DMSans-Regular',
     fontSize:16
   },
@@ -112,14 +115,16 @@ const styles = StyleSheet.create({
   },
   weightInputStyles:{
         width:'40%',
+        height:50,
         borderWidth:2,
         borderColor:colors.button,
         borderRadius:40,
         alignItems:'center',
         justifyContent:'center',
         textAlign:'center',
-        fontSize:18,
         fontFamily:'DMSans-Medium',
-        marginHorizontal:"4%"
+        marginHorizontal:"4%",
+        color:"#000000",
+        flexDirection:'row',
   },
 });

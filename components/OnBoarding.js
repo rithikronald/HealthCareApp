@@ -27,13 +27,16 @@ export default function OnBoarding(props,{ navigation }) {
           key={index}
           style={{width:windowWidth}}
         >
-          <View style={styles.imageContainer}>
-          {index == 2?
+        {index == 2?
             <View style={styles.closeButton}>
               <Icon name="closecircleo" size={35} onPress={props.onPress} />
             </View>:null
           }
-            <Image source={item.image} resizeMode="cover" style={styles.imageStyle} />
+          <View style={styles.imageContainer}>
+          
+          <View style={{flex:1,justifyContent:'center'}}>
+            <Image source={item.image} resizeMode="contain" style={styles.imageStyle} />
+            </View>
           </View>
           <View style={styles.textContainer}>
               <Text style={styles.textStyle}>{item.description}</Text>
@@ -91,14 +94,14 @@ export default function OnBoarding(props,{ navigation }) {
 const styles = StyleSheet.create({
   imageContainer:{
     flex: 1,
-    alignItems:'center',
     backgroundColor:colors.backgroundColor,
-    marginTop:'10%'
+    marginTop:'10%',
+    
   },
   imageStyle: {
     width:'100%',
-    height:"70%",
-    marginTop:'10%'
+    
+
   },
   textContainer:{
     backgroundColor:colors.backgroundColor,
@@ -122,7 +125,7 @@ const styles = StyleSheet.create({
   },
   closeButton:{
     alignSelf:'flex-end',
-    position:"absolute",
-    marginHorizontal:'2%'
+    marginHorizontal:'2%',
+    marginTop:"2%"
   }
 });

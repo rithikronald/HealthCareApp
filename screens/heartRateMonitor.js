@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import { View, Text, Image,StyleSheet,TouchableOpacity,Modal,ImageBackground} from 'react-native';
 import colors from '../assets/colors/colors'
 import Icon from 'react-native-vector-icons/AntDesign'
@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/AntDesign'
 export default function HeartRateMonitor({ navigation }) {
   const [modalVisible,setModalVisible] = useState(true);
   const [percentage,setPercentage] = useState(80);
+  
   return (
     <View style={styles.containerStyle}>
       <Modal
@@ -27,7 +28,7 @@ export default function HeartRateMonitor({ navigation }) {
       <>
       <Text style={styles.lightText}>Measuring</Text>
       <Text style={styles.titleText}>Heart Beat</Text>
-      <Image source={require('../assets/images/red-heart.png')} style={{width:225,height:250}} />
+      <Image source={require('../assets/images/heart.gif')} resizeMode="contain" style={{width:200,height:225}} />
       <View style={{flexDirection:'row',alignItems:'center',}}>
         <Image source={require('../assets/images/oximeter.png')} style={{width:50,height:50}} />
         <Text style={{fontSize:50,fontFamily:'DMSans-Medium',marginLeft:'3%'}}>80</Text>

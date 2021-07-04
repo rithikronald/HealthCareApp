@@ -5,7 +5,7 @@ import data from '../assets/data/onBoarding'
 import Icon from 'react-native-vector-icons/AntDesign'
 
 
-export default function OnBoarding({ navigation }) {
+export default function OnBoarding(props,{ navigation }) {
   const scrollX = new Animated.Value(0)
   function renderContent(){
     const windowWidth = Dimensions.get('window').width;
@@ -27,12 +27,12 @@ export default function OnBoarding({ navigation }) {
           key={index}
           style={{width:windowWidth}}
         >
+          <View style={styles.imageContainer}>
           {index == 2?
-            <View style={{alignSelf:'flex-end',margin:'2%'}}>
-              <Icon name="closecircleo" size={30} />
+            <View style={styles.closeButton}>
+              <Icon name="closecircleo" size={35} onPress={props.onPress} />
             </View>:null
           }
-          <View style={styles.imageContainer}>
             <Image source={item.image} resizeMode="cover" style={styles.imageStyle} />
           </View>
           <View style={styles.textContainer}>
@@ -97,7 +97,8 @@ const styles = StyleSheet.create({
   },
   imageStyle: {
     width:'100%',
-    height:"70%"
+    height:"70%",
+    marginTop:'10%'
   },
   textContainer:{
     backgroundColor:colors.backgroundColor,
@@ -115,8 +116,13 @@ const styles = StyleSheet.create({
     bottom:'15%',
   },
   dotsStyle:{
-    borderRadius:100,
+    borderRadius:10,
     backgroundColor:colors.button,
     marginHorizontal:'2%'
+  },
+  closeButton:{
+    alignSelf:'flex-end',
+    position:"absolute",
+    marginHorizontal:'4%'
   }
 });

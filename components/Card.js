@@ -13,11 +13,11 @@ export default function Card(props,{ navigation }) {
                 <Text style={styles.descriptionText}>{props.description}</Text>
                 <TouchableOpacity style={styles.buttonStyle} onPress={props.onPress}>
                     <Text style={styles.clickText}>Check Now</Text>
-                    <Icon name="right" size={20} />
+                    <Icon name="right" size={18} />
                 </TouchableOpacity>
             </View>
             <View style={styles.imageContainer}>
-                <Image source={props.image} style={{width:50,height:50,alignSelf:'center'}} />
+                <Image source={props.image} resizeMode="contain" style={{width:50,height:50,alignSelf:'center'}} />
             </View>
         </View>
     </>
@@ -27,13 +27,15 @@ export default function Card(props,{ navigation }) {
 const styles = StyleSheet.create({
   cardContainer:{
     width:'100%',
-    elevation:8,
+    elevation:16,
     backgroundColor:colors.backgroundColor,
     padding:'3%',
     flexDirection:'row',
     marginVertical:'4%',
-    borderRadius:4,
+    borderRadius:6,
     height:Dimensions.get('window').height/6,
+    shadowColor:"#6c757d",
+    
   },
   textContainer:{
     flex: 3,
@@ -50,7 +52,8 @@ const styles = StyleSheet.create({
   descriptionText:{
     fontFamily:'DMSans-Regular',
     fontSize:10,
-    paddingVertical:'3%'
+    paddingVertical:'3%',
+    color:'#B7B6B6'
   },
   buttonStyle:{
     flexDirection:'row',
@@ -58,6 +61,7 @@ const styles = StyleSheet.create({
   }, 
   clickText:{
     fontFamily:'DMSans-Medium',
-    fontSize:14
+    fontSize:14,
+    color:'#1A1818',
   },
 });

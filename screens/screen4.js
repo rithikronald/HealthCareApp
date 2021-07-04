@@ -8,13 +8,18 @@ import DatePicker from 'react-native-date-picker'
 
 export default function Screen4({ navigation }) {
   const [date, setDate] = useState(new Date())
+  const [weight,setWeight] = useState(0)
+  const [weightType,setWeightType] = useState("kgs")
   return (
     <View style={styles.containerStyle}>
       <Text style={styles.mainTextStyle}>When you were born?</Text>
       <Text style={styles.subTextStyle}>Date of birth will we used to calcuate your age</Text>
       <DatePicker
       date={date}
+      mode="date"
+      androidVariant='nativeAndroid'
       onDateChange={setDate}
+      style={{alignSelf:"center"}}
       />
       <Text style={styles.mainTextStyle}>Your Gender?</Text>
       <Text style={styles.subTextStyle}>Please enter your gender</Text>
@@ -22,18 +27,18 @@ export default function Screen4({ navigation }) {
         <TouchableOpacity style={styles.genderButtonStyle} onPress={()=>{}}>
             <Text style={styles.genderButtonTextStyle}>Male</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.genderButtonStyle,{backgroundColor:colors.textColorMedium}]} onPress={()=>{}}>
+        <TouchableOpacity style={[styles.genderButtonStyle,{backgroundColor:"#D1D1D1"}]} onPress={()=>{}}>
             <Text style={styles.genderButtonTextStyle}>Female</Text>
         </TouchableOpacity>
       </View>
       <Text style={styles.mainTextStyle}>Your Current Weight?</Text>
       <View style={styles.weightContainer}>
-            <Icon name="pluscircle" size={25} color={colors.button} />
-            <TextInput keyboardType="number-pad" style={styles.weightInputStyles} />
-            <Icon name="minuscircle" size={25} color={colors.button} />
+            <Icon name="pluscircle" size={40} color={colors.button} onPress={()=>{setWeight(weight+1)}} />
+            <TextInput defaultValue={`${weight} ${weightType}`} keyboardType="number-pad" style={styles.weightInputStyles} />
+            <Icon name="minuscircle" size={40} color={colors.button} onPress={()=>{weight != 0?setWeight(weight-1):null}} />
       </View>
-      <TouchableOpacity style={{alignSelf:'center'}}>
-          <Text style={{fontFamily:'DMSans-Regular',fontSize:14,color:colors.button}}>Prefer lbs</Text>
+      <TouchableOpacity style={{alignSelf:'center'}} onPress={()=>weightType =="kgs"?setWeightType("lbs"):setWeightType("kgs")}>
+          <Text style={{fontFamily:'DMSans-Regular',fontSize:14,color:colors.button,marginTop:'3%'}}>Prefer {weightType == "kgs"?"lbs":"kgs"}</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.buttonStyle} onPress={()=>navigation.navigate('Home')}>
         <Text style={styles.buttonTextStyle}>Next</Text>
@@ -46,7 +51,8 @@ const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
     backgroundColor:colors.backgroundColor,
-    justifyContent:'space-around'
+    justifyContent:'space-around',
+    paddingVertical:'8%'
   },
   imageStyle: {
     width:'100%',
@@ -80,7 +86,7 @@ const styles = StyleSheet.create({
   },
   genderButtonContainer:{
     flexDirection:'row',
-    justifyContent:"space-around"   
+    justifyContent:'center',       
   },
   genderButtonStyle:{
     width:'30%',
@@ -90,7 +96,8 @@ const styles = StyleSheet.create({
     borderRadius:25,
     alignItems:'center',
     justifyContent:'center',
-    marginTop:'4%'
+    marginTop:'4%',
+    marginHorizontal:'4%'
   },
   genderButtonTextStyle:{
     color:colors.textColorLight,
@@ -99,7 +106,7 @@ const styles = StyleSheet.create({
   },
   weightContainer:{
     alignItems:'center', 
-    justifyContent:'space-around',
+    justifyContent:'center',
     flexDirection:'row' 
   },
   weightInputStyles:{
@@ -110,7 +117,8 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center',
         textAlign:'center',
-        fontSize:16,
-        fontFamily:'DMSans-Medium'
+        fontSize:18,
+        fontFamily:'DMSans-Medium',
+        marginHorizontal:"4%"
   },
 });

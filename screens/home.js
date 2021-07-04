@@ -7,16 +7,15 @@ import data from '../assets/data/homeList'
 export default function Home({ navigation }) {
   return (
     <View style={styles.containerStyle}>
-        <Text style={styles.textStyle}>Hey</Text>
+        <Text style={styles.textStyle}>Hey 👋</Text>
        <FlatList 
           data={data}
-          //style={styles.flatlistContainer}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.flatlistContainer} 
           renderItem={({item,index})=>(
             <Card title={item.title} description={item.description} image={item.image} color={item.color} onPress={()=>navigation.navigate('HeartRateMonitor')} />
           )} 
-          keyExtractor={({item,index})=>index} />
+          keyExtractor={(item)=>item.title} />
     </View>
   );
 }
@@ -25,13 +24,14 @@ const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
     backgroundColor:colors.backgroundColor,
-    paddingHorizontal:'4%',
+    paddingHorizontal:'2%',
     paddingTop:'10%'
   },
   textStyle: {
     fontFamily:'DMSans-Bold',
     fontSize:24,
-    paddingVertical:'4%'
+    paddingVertical:'4%',
+    marginLeft:"5%"
     
   },
   cardContainer:{
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   },
   flatlistContainer:{
     backgroundColor: colors.backgroundColor,
-    paddingHorizontal:'3%',
-    paddingVertical:'2%'
+    paddingHorizontal:'5%',
+    paddingVertical:'6%'
   }
 });

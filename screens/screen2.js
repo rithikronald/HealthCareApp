@@ -7,7 +7,7 @@ import OnBoarding from '../components/OnBoarding';
 export default function Screen2({ navigation }) {
   return (
     <SafeAreaView style={styles.containerStyle}>
-      <OnBoarding />
+      <OnBoarding onPress={()=>navigation.navigate('Screen3')} />
       <TouchableOpacity style={styles.buttonStyle} onPress={()=>navigation.navigate('Screen3')}>
         <Text style={styles.buttonTextStyle}>START FREE TRAIL</Text>
       </TouchableOpacity>

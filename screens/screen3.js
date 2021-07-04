@@ -10,12 +10,13 @@ export default function Screen3({ navigation }) {
   return (
     <SafeAreaView style={styles.containerStyle}>
         <Modal
-            animationType="slide"
+            animationType='slide'
             transparent={true}
             visible={modalVisible}
         >
+        <View style={{backgroundColor:'#00000080',flex:1,justifyContent:'flex-end'}}>
             <View style={styles.modalContainerStyle}>
-                <Text style={{textAlign:'center',fontSize:16,margin:'2%',width:'80%',alignSelf:'center',marginTop:'3%',fontFamily:'DMSans-Regular'}}>Are you sure you want to miss out of this offer?</Text>
+                <Text style={{textAlign:'center',fontSize:16,margin:'2%',width:'80%',alignSelf:'center',marginTop:'3%',fontFamily:'DMSans-Medium'}}>Are you sure you want to miss out of this offer?</Text>
                 <View style={styles.textContainer}>
                 <Text style={[styles.headertextStyle,{fontSize:22}]}>Limited Offer Only!</Text>
                 
@@ -43,9 +44,10 @@ export default function Screen3({ navigation }) {
                 <Text style={{color:colors.textColorMedium,fontFamily:'DMSans-Medium',fontSize:16}}>No Thanks</Text>
             </TouchableOpacity>
             </View>
+            </View>
         </Modal>
         <>
-        <Image source={require('../assets/images/HeartPulse.png')} resizeMode="cover" style={styles.imageStyle} />
+        <Image source={require('../assets/images/HeartPulse.png')} resizeMode="contain" style={styles.imageStyle} />
         <View style={styles.textContainer}>
             <Text style={styles.headertextStyle}>Premium Features</Text>
             <View style={styles.pointsContainer}>
@@ -72,8 +74,8 @@ export default function Screen3({ navigation }) {
         <TouchableOpacity style={styles.buttonStyle} onPress={()=>navigation.navigate('Screen4')}>
             <Text style={styles.buttonTextStyle}>SUBSCRIBE</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{alignItems:'center',justifyContent:'center',margin:'3%'}} onPress={()=>navigation.navigate('Screen3')}>
-            <Text style={{color:colors.textColorMedium,fontFamily:'DMSans-Medium',fontSize:16}}>No Thanks</Text>
+        <TouchableOpacity style={{alignItems:'center',justifyContent:'center'}} onPress={()=>navigation.navigate('Screen3')}>
+            <Text style={{color:colors.textColorMedium,fontFamily:'DMSans-Medium',fontSize:16,marginTop:'3%'}}>No Thanks</Text>
         </TouchableOpacity>
         </>
     </SafeAreaView>
@@ -126,13 +128,13 @@ const styles = StyleSheet.create({
   },
   modalContainerStyle:{
     width:'100%',
-    height:'65%',
+    height:'68%',
     backgroundColor:colors.backgroundColor,
     position:'absolute',
-    bottom:0,
-    borderTopLeftRadius:20,
-    borderTopRightRadius:20,
+    borderTopLeftRadius:24,
+    borderTopRightRadius:24,
     elevation:10,
     padding:10,
+    paddingBottom:"10%"
   }
 });

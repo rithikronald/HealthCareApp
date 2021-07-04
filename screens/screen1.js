@@ -3,10 +3,10 @@ import { View, Text, Image,StyleSheet,TouchableOpacity} from 'react-native';
 import colors from '../assets/colors/colors'
 
 
-export default function Screen1({ navigation }) {
+export default function InitialScreen({ navigation }) {
   return (
     <View style={styles.containerStyle}>
-      <Image source={require('../assets/images/BloodFlow.png')} style={styles.imageStyle} />
+      <Image source={require('../assets/images/BloodFlow.png')}  style={styles.imageStyle} />
       <Text style={styles.textStyle}>Visualize blood flow using PPG Graph and get all metrics justusing your iPhone for FREE!</Text>
       <TouchableOpacity style={styles.buttonStyle} onPress={()=>{navigation.navigate('Screen2')}}>
         <Text style={styles.buttonTextStyle}>GET STARTED</Text>
@@ -22,13 +22,15 @@ const styles = StyleSheet.create({
   },
   imageStyle: {
     width:'100%',
-    height:"70%"
+    height:"60%",
+    marginTop:'10%'
   },
   textStyle: {
     fontFamily:'DMSans-Regular',
     fontSize:22,
     padding:'4%',
-    textAlign:'center'
+    textAlign:'center',
+    marginTop:"8%"
   },
   buttonStyle:{
     width:'80%',

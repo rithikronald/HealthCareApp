@@ -8,7 +8,7 @@ export default function InitialScreen({ navigation }) {
     <View style={styles.containerStyle}>
       <Image source={require('../assets/images/BloodFlow.png')}  style={styles.imageStyle} />
       <Text style={styles.textStyle}>Visualize blood flow using PPG Graph and get all metrics justusing your iPhone for FREE!</Text>
-      <TouchableOpacity style={styles.buttonStyle} onPress={()=>{navigation.navigate('Screen2')}}>
+      <TouchableOpacity style={styles.buttonStyle} onPress={()=>{navigation.navigate('onBoardingScreen')}}>
         <Text style={styles.buttonTextStyle}>GET STARTED</Text>
       </TouchableOpacity>
     </View>

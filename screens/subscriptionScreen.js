@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/AntDesign'
 
 
 
-export default function Screen3({ navigation }) {
+export default function SubscriptionScreen({ navigation }) {
     const [modalVisible,setModalVisible] = useState(true);
   return (
     <SafeAreaView style={styles.containerStyle}>
@@ -37,7 +37,7 @@ export default function Screen3({ navigation }) {
                     <Text style={styles.pointsTextStyle}>One on one consultation and advice from cardiologist</Text>
                 </View>
             </View>
-            <TouchableOpacity style={styles.buttonStyle} onPress={()=>navigation.navigate('Screen4')}>
+            <TouchableOpacity style={styles.buttonStyle} onPress={()=>navigation.navigate('fillDetailsScreen')}>
                 <Text style={styles.buttonTextStyle}>SUBSCRIBE</Text>
             </TouchableOpacity>
             <TouchableOpacity style={{alignItems:'center',justifyContent:'center',margin:'3%'}} onPress={()=>setModalVisible(false)}>
@@ -71,10 +71,10 @@ export default function Screen3({ navigation }) {
                 <Text style={styles.pointsTextStyle}>One on one consultation and advice from cardiologist</Text>
             </View>
         </View>
-        <TouchableOpacity style={styles.buttonStyle} onPress={()=>navigation.navigate('Screen4')}>
+        <TouchableOpacity style={styles.buttonStyle} onPress={()=>navigation.navigate('fillDetailsScreen')}>
             <Text style={styles.buttonTextStyle}>SUBSCRIBE</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{alignItems:'center',justifyContent:'center'}} onPress={()=>navigation.navigate('Screen3')}>
+        <TouchableOpacity style={{alignItems:'center',justifyContent:'center'}} onPress={()=>navigation.navigate('subscriptionScreen')}>
             <Text style={{color:colors.textColorMedium,fontFamily:'DMSans-Medium',fontSize:16,marginTop:'3%'}}>No Thanks</Text>
         </TouchableOpacity>
         </>

@@ -4,11 +4,11 @@ import colors from '../assets/colors/colors'
 import OnBoarding from '../components/OnBoarding';
 
 
-export default function Screen2({ navigation }) {
+export default function OnBoardingScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.containerStyle}>
-      <OnBoarding onPress={()=>navigation.navigate('Screen3')} />
-      <TouchableOpacity style={styles.buttonStyle} onPress={()=>navigation.navigate('Screen3')}>
+      <OnBoarding onPress={()=>navigation.navigate('subscriptionScreen')} />
+      <TouchableOpacity style={styles.buttonStyle} onPress={()=>navigation.navigate('subscriptionScreen')}>
         <Text style={styles.buttonTextStyle}>START FREE TRAIL</Text>
       </TouchableOpacity>
     </SafeAreaView>

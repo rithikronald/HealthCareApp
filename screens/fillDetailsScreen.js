@@ -6,7 +6,7 @@ import { TextInput } from 'react-native-gesture-handler';
 import DatePicker from 'react-native-date-picker'
 
 
-export default function Screen4({ navigation }) {
+export default function FillDetailsScreen({ navigation }) {
   const [date, setDate] = useState(new Date())
   const [weight,setWeight] = useState(0)
   const [weightType,setWeightType] = useState("kgs")
@@ -18,6 +18,7 @@ export default function Screen4({ navigation }) {
       date={date}
       mode="date"
       androidVariant='nativeAndroid'
+      textColor={colors.button}
       onDateChange={setDate}
       style={{alignSelf:"center"}}
       />

@@ -123,6 +123,6 @@ const styles = StyleSheet.create({
   closeButton:{
     alignSelf:'flex-end',
     position:"absolute",
-    marginHorizontal:'4%'
+    marginHorizontal:'2%'
   }
 });

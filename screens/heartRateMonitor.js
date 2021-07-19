@@ -28,7 +28,7 @@ export default function HeartRateMonitor({ navigation }) {
       <>
       <Text style={styles.lightText}>Measuring</Text>
       <Text style={styles.titleText}>Heart Beat</Text>
-      <Image source={require('../assets/images/heart.gif')} resizeMode="contain" style={{width:200,height:225}} />
+      <Image source={require('../assets/images/animatedHeart.gif')} resizeMode="contain" style={{width:200,height:225}} />
       <View style={{flexDirection:'row',alignItems:'center',}}>
         <Image source={require('../assets/images/oximeter.png')} style={{width:50,height:50}} />
         <Text style={{fontSize:50,fontFamily:'DMSans-Medium',marginLeft:'3%'}}>80</Text>
